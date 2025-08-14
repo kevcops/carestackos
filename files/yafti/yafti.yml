@@ -1,0 +1,73 @@
+version: 1
+pages:
+  - type: header
+    title: "Welcome to Carestack OS"
+    body: "Choose optional apps to finish setting up your workstation."
+
+  - type: section
+    title: "CareStack Setup"
+    description: "Install the CareStack Chromium app launcher."
+    packages:
+      - name: "Install CareStack App"
+        type: script
+        script: /usr/libexec/carestack/install-carestack-browser.sh
+        tooltip: "Sets up Chromium-based CareStack app, profile, and desktop launcher"
+
+  - type: section
+    title: "Web Browsers (Optional)"
+    packages:
+      - name: "Firefox"
+        type: flatpak
+        package: org.mozilla.firefox
+      - name: "Brave"
+        type: flatpak
+        package: com.brave.Browser
+      - name: "Zen Browser"
+        type: flatpak
+        package: app.zen_browser.zen
+
+  - type: section
+    title: "Communication"
+    packages:
+      - name: "Slack"
+        type: flatpak
+        package: com.slack.Slack
+      - name: "Discord"
+        type: flatpak
+        package: com.discordapp.Discord
+      - name: "Zoom"
+        type: flatpak
+        package: us.zoom.Zoom
+
+  - type: section
+    title: "IT & Remote Access"
+    packages:
+      - name: "Tailscale"
+        type: flatpak
+        package: com.tailscale.Client
+
+  - type: section
+    title: "Creative & Media"
+    packages:
+      - name: "GIMP"
+        type: flatpak
+        package: org.gimp.GIMP
+      - name: "OBS Studio"
+        type: flatpak
+        package: com.obsproject.Studio
+      - name: "Spotify"
+        type: flatpak
+        package: com.spotify.Client
+      - name: "VLC"
+        type: flatpak
+        package: org.videolan.VLC
+
+  - type: section
+    title: "3D Tools"
+    packages:
+      - name: "Blender"
+        type: flatpak
+        package: org.blender.Blender
+      - name: "MeshLab"
+        type: flatpak
+        package: org.meshlab.MeshLab

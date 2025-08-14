@@ -1,0 +1,42 @@
+type: recipe
+description: "Carestack OS core configuration and packages"
+modules:
+  - type: files
+    files:
+      - source: files/etc
+        destination: /etc
+      - source: files/usr
+        destination: /usr
+
+  # Core system-wide Flatpaks
+  - type: flatpaks
+    system:
+      repo-url: https://flathub.org/repo/flathub.flatpakrepo
+      repo-name: flathub
+      install:
+        - org.chromium.Chromium
+        - org.kde.haruna
+        - io.github.dvlv.boxbuddyrs
+        - org.kde.krita
+        - org.libreoffice.LibreOffice
+        - org.kde.konsole
+        - org.kde.kate
+        - org.kde.okular
+        - org.gnome.Boxes
+        - com.github.tchx84.Flatseal
+        - com.usebottles.bottles
+
+  # First-boot optional app chooser (yafti)
+  - type: yafti
+    source: files/yafti/yafti.yml
+
+  # Layered RPMs (immutable base with a few utilities)
+  - type: rpm-ostree
+    install:
+      - distrobox
+      - kde-connect
+
+  # Post-setup staging (branding hooks, etc.)
+  - type: script
+    scripts:
+      - scripts/stage-carestack.sh
