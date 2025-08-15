@@ -1,8 +1,0 @@
-name: carestackos
-description: "Carestack OS - Fedora/BlueBuild based image for pediatric dental offices"
-base-image: ghcr.io/ublue-os/bazzite-kinoite-main:stable
-image: ghcr.io/kevcops/carestackos
-labels:
-  maintainer: "Kevin Coppola <drk@necdsa.com>"
-modules:
-  - from-file: recipes/carestackos.yml
